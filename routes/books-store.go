@@ -1,14 +1,14 @@
 package routes
 
 import (
+	"github.com/MeganViga/GoWithMYSQL/controllers"
 	"github.com/gorilla/mux"
-	"github.com/MeganViga/controllers"
 )
 
-var registeBookStoreRoutes = func(r *mux.Router){
-	r.HandleFunc("/books",createBook).Methods("POST")
-	r.HandleFunc("/books",getBooks).Methods("GET")
-	r.HandleFunc("/books/{bookid}",getBook).Methods("GET")
-	r.HandleFunc("/books/{bookid}",deleteBook).Methods("DELETE")
-	r.HandleFunc("/books/{bookid}",updateBook).Methods("PUT")
+var RegisterBookStoreRoutes = func(r *mux.Router){
+	r.HandleFunc("/books",controllers.CreateBook).Methods("POST")
+	r.HandleFunc("/books",controllers.GetBooks).Methods("GET")
+	r.HandleFunc("/books/{bookid}",controllers.GetBookByID).Methods("GET")
+	r.HandleFunc("/books/{bookid}",controllers.DeleteBook).Methods("DELETE")
+	r.HandleFunc("/books/{bookid}",controllers.UpdateBook).Methods("PUT")
 }
